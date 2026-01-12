@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamify - Music Streaming</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <nav class="floating-nav">
+        <div class="nav-brand">
+            <i class="fas fa-wave-square"></i>
+            <span>Streamify</span>
+        </div>
+        <div class="nav-search-container" id="nav-search-container" style="display: none;">
+            <div class="nav-search-bar">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="nav-search-input" placeholder="Search for songs, artists, albums...">
+                <button class="nav-search-close" id="nav-search-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-link active" data-view="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-link" data-view="liked" id="liked-nav">
+                <i class="fas fa-heart"></i>
+                <span>Liked</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="app-container">
+        <main class="main-content">
+            <section class="home-search-section" id="home-section">
+                <div class="home-search-container">
+                    <h1 class="home-title">Streamify</h1>
+                    <p class="home-subtitle">Search for any song, artist, or album</p>
+                    <div class="home-search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" id="home-search-input" placeholder="Search for songs, artists, albums...">
+                    </div>
+                </div>
+            </section>
+
+            <section class="featured-section" id="search-results" style="display: none;">
+                <h2>Search Results</h2>
+                <div class="music-grid" id="search-grid"></div>
+            </section>
+
+            <section class="featured-section" id="liked-section" style="display: none;">
+                <h2>Liked Songs</h2>
+                <div class="music-grid" id="liked-grid"></div>
+            </section>
+        </main>
+    </div>
+
+    <div class="music-player">
+        <div class="player-track-info">
+            <div class="track-image" id="player-track-image" style="display: none;">
+                <img id="current-track-img" src="" alt="Now Playing">
+            </div>
+            <div class="track-details" id="player-track-details" style="display: none;">
+                <h4 id="current-track-title"></h4>
+                <p id="current-track-artist"></p>
+            </div>
+            <button class="player-like-btn" id="player-like-btn" style="display: none;">
+                <i class="far fa-heart"></i>
+            </button>
+            <div class="player-placeholder" id="player-placeholder">
+                <i class="fas fa-music"></i>
+                <span>No track playing</span>
+            </div>
+        </div>
+
+        <div class="player-controls">
+            <div class="control-buttons">
+                <button class="control-btn shuffle-btn"><i class="fas fa-random"></i></button>
+                <button class="control-btn prev-btn"><i class="fas fa-step-backward"></i></button>
+                <button class="control-btn play-pause-btn" id="play-pause"><i class="fas fa-play"></i></button>
+                <button class="control-btn next-btn"><i class="fas fa-step-forward"></i></button>
+                <button class="control-btn repeat-btn"><i class="fas fa-redo"></i></button>
+            </div>
+            <div class="progress-container">
+                <span class="time-current" id="time-current">0:00</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                    <input type="range" class="progress-slider" id="progress-slider" min="0" max="100" value="0">
+                </div>
+                <span class="time-total" id="time-total">0:00</span>
+            </div>
+        </div>
+
+        <div class="player-extra">
+            <button class="volume-btn"><i class="fas fa-volume-up"></i></button>
+            <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="70">
+        </div>
+
+        <audio id="audio-player" preload="auto" crossorigin="anonymous"></audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
